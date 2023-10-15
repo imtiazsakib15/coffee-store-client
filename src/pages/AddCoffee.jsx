@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddCoffee = () => {
   const handleAddCoffee = (event) => {
     event.preventDefault();
@@ -25,6 +27,14 @@ const AddCoffee = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId)
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1000,
+          });
       });
   };
 
@@ -174,3 +184,10 @@ const AddCoffee = () => {
 };
 
 export default AddCoffee;
+
+// https://i.ibb.co/6vQsL3Y/6.jpg
+// https://i.ibb.co/Fh8WTy4/5.jpg
+// https://i.ibb.co/cCzVd35/4.jpg
+// https://i.ibb.co/gTN2N46/3.jpg
+// https://i.ibb.co/rMWHHM0/2.jpg
+// https://i.ibb.co/NZ3hVG8/1.jpg
