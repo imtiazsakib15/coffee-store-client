@@ -27,7 +27,7 @@ const Home = () => {
               console.log(data);
               const remaining = coffees.filter((coffee) => coffee._id !== id);
               setCoffees(remaining);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your coffee has been deleted.", "success");
             } else
               Swal.fire({
                 icon: "error",

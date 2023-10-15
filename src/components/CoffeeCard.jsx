@@ -13,7 +13,7 @@ const CoffeeCard = ({ coffee, handleDelete }) => {
       <div className="flex flex-col gap-4 col-span-1">
         <button className="p-2 bg-[#D2B48C]">View</button>
         <button
-          onClick={() => navigate(`/update/${coffee._id}`)}
+          onClick={() => navigate(`/update/${coffee._id}/edit`)}
           className="p-2 text-white bg-black"
         >
           Edit
