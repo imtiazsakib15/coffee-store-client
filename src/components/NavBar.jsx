@@ -35,6 +35,14 @@ const NavBar = () => {
       >
         Log In
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "bg-green-700 text-white px-4 py-2" : ""
+        }
+        to="/users"
+      >
+        Users
+      </NavLink>
     </div>
   );
 };
