@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import AddCoffee from "../pages/AddCoffee";
 import UpdateCoffee from "../pages/UpdateCoffee";
 import ErrorPage from "../components/ErrorPage";
+import Register from "../components/Register";
+import Login from "../components/Login";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <AddCoffee />,
+        element: <Register />,
       },
       {
         path: "/login",
-        element: <AddCoffee />,
+        element: <Login />,
       },
     ],
   },
