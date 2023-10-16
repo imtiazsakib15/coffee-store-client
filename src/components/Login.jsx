@@ -1,15 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    const user = { email, password };
-    console.log(user);
+    signIn(email, password) 
+    .then(userCredential => {
+      console.log(userCredential.user);
+      
+    })
+    .catch(error => {
+      console.log(error);
+    })
   };
+
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg text-center">
@@ -56,7 +66,7 @@ const Login = () => {
           <p className="text-sm text-gray-500">
             No account?
             <Link to="/register" className="underline">
-            Register
+              Register
             </Link>
           </p>
 
