@@ -10,15 +10,15 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const registerUser = { email };
-
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user.email;
+        const lastSignInTime = userCredential.user.metadata.lastSignInTime;
         console.log(user);
+        const registerUser = { email, lastSignInTime };
 
         // Send to Database
-        fetch("http://localhost:5000/users", {
+        fetch("https://coffee-store-server-wine-iota.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

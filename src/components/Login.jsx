@@ -10,14 +10,27 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signIn(email, password) 
-    .then(userCredential => {
-      console.log(userCredential.user);
-      
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    signIn(email, password)
+      .then((userCredential) => {
+        console.log(userCredential.user);
+        const lastSignInTime = userCredential.user.metadata.lastSignInTime;
+        console.log(lastSignInTime);
+
+        fetch("http://localhost:5000/users", {
+          method: 'PATCH',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({email, lastSignInTime})
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
